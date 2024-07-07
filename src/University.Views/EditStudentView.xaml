@@ -41,6 +41,30 @@
                     <TextBlock Text="Birth Date" Style="{StaticResource PrimaryTextBlock}" />
                     <TextBox Text="{Binding BirthDate, ValidatesOnDataErrors=True}" Style="{StaticResource PrimaryTextBox}" />
                 </WrapPanel>
+                <WrapPanel Margin="0,0,0,5">
+                    <TextBlock Text="Gender" Style="{StaticResource PrimaryTextBlock}" />
+                    <TextBox Text="{Binding Gender, ValidatesOnDataErrors=True}" Style="{StaticResource PrimaryTextBox}" />
+                </WrapPanel>
+                <WrapPanel Margin="0,0,0,5">
+                    <TextBlock Text="Place of Birth" Style="{StaticResource PrimaryTextBlock}" />
+                    <TextBox Text="{Binding PlaceOfBirth, ValidatesOnDataErrors=True}" Style="{StaticResource PrimaryTextBox}" />
+                </WrapPanel>
+                <WrapPanel Margin="0,0,0,5">
+                    <TextBlock Text="Place of Residence" Style="{StaticResource PrimaryTextBlock}" />
+                    <TextBox Text="{Binding PlaceOfResidence, ValidatesOnDataErrors=True}" Style="{StaticResource PrimaryTextBox}" />
+                </WrapPanel>
+                <WrapPanel Margin="0,0,0,5">
+                    <TextBlock Text="Address Line 1" Style="{StaticResource PrimaryTextBlock}" />
+                    <TextBox Text="{Binding AddressLine1, ValidatesOnDataErrors=True}" Style="{StaticResource PrimaryTextBox}" />
+                </WrapPanel>
+                <WrapPanel Margin="0,0,0,5">
+                    <TextBlock Text="Address Line 2" Style="{StaticResource PrimaryTextBlock}" />
+                    <TextBox Text="{Binding AddressLine2, ValidatesOnDataErrors=True}" Style="{StaticResource PrimaryTextBox}" />
+                </WrapPanel>
+                <WrapPanel Margin="0,0,0,5">
+                    <TextBlock Text="Postal Code" Style="{StaticResource PrimaryTextBlock}" />
+                    <TextBox Text="{Binding PostalCode, ValidatesOnDataErrors=True}" Style="{StaticResource PrimaryTextBox}" />
+                </WrapPanel>
             </StackPanel>
         </GroupBox>
         <GroupBox Header="Assigned Subjects" Grid.Row="1" Grid.Column="1" Margin="0,5,5,5" Padding="10">

@@ -30,7 +30,7 @@ namespace University.Data
             modelBuilder.Entity<Subject>().Ignore(s => s.IsSelected);
 
             modelBuilder.Entity<Student>().HasData(
-                new Student { StudentId = 1, Name = "Wieńczysław", LastName = "Nowakowicz", PESEL = "PESEL1", BirthDate = new DateTime(1987, 05, 22) },
+                new Student { StudentId = 1, Name = "Wieńczysław", LastName = "Nowakowicz", PESEL = "PESEL1", BirthDate = new DateTime(1987, 05, 22), Gender = "M", PlaceOfBirth = "Warszawa", PlaceOfResidence = "Wroclaw", AddressLine1 = "", AddressLine2 = "", PostalCode = "1234" },
                 new Student { StudentId = 2, Name = "Stanisław", LastName = "Nowakowicz", PESEL = "PESEL2", BirthDate = new DateTime(2019, 06, 25) },
                 new Student { StudentId = 3, Name = "Eugenia", LastName = "Nowakowicz", PESEL = "PESEL3", BirthDate = new DateTime(2021, 06, 08) });
 

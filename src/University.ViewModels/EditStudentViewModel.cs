@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows.Input;
 using University.Data;
 using University.Extensions;
@@ -16,46 +17,42 @@ public class EditStudentViewModel : ViewModelBase, IDataErrorInfo
     private readonly IDialogService _dialogService;
     private Student? _student = new Student();
 
-    public string Error
-    {
-        get { return string.Empty; }
-    }
+    public string Error => string.Empty;
 
     public string this[string columnName]
     {
         get
         {
-            if (columnName == "Name")
+            switch (columnName)
             {
-                if (string.IsNullOrEmpty(Name))
-                {
-                    return "Name is Required";
-                }
-            }
-            if (columnName == "LastName")
-            {
-                if (string.IsNullOrEmpty(LastName))
-                {
-                    return "Last Name is Required";
-                }
-            }
-            if (columnName == "PESEL")
-            {
-                if (string.IsNullOrEmpty(PESEL))
-                {
-                    return "PESEL is Required";
-                }
-                if (!PESEL.IsValidPESEL())
-                {
-                    return "PESEL is Invalid";
-                }
-            }
-            if (columnName == "BirthDate")
-            {
-                if (BirthDate is null)
-                {
-                    return "BirthDate is Required";
-                }
+                case nameof(Name):
+                    if (string.IsNullOrEmpty(Name)) return "Name is Required";
+                    break;
+                case nameof(LastName):
+                    if (string.IsNullOrEmpty(LastName)) return "Last Name is Required";
+                    break;
+                case nameof(PESEL):
+                    if (string.IsNullOrEmpty(PESEL)) return "PESEL is Required";
+                    if (!PESEL.IsValidPESEL()) return "PESEL is Invalid";
+                    break;
+                case nameof(BirthDate):
+                    if (BirthDate is null) return "BirthDate is Required";
+                    break;
+                case nameof(Gender):
+                    if (string.IsNullOrEmpty(Gender)) return "Gender is Required";
+                    break;
+                case nameof(PlaceOfBirth):
+                    if (string.IsNullOrEmpty(PlaceOfBirth)) return "Place of Birth is Required";
+                    break;
+                case nameof(PlaceOfResidence):
+                    if (string.IsNullOrEmpty(PlaceOfResidence)) return "Place of Residence is Required";
+                    break;
+                case nameof(AddressLine1):
+                    if (string.IsNullOrEmpty(AddressLine1)) return "Address Line 1 is Required";
+                    break;
+                case nameof(PostalCode):
+                    if (string.IsNullOrEmpty(PostalCode)) return "Postal Code is Required";
+                    break;
             }
             return string.Empty;
         }
@@ -64,10 +61,7 @@ public class EditStudentViewModel : ViewModelBase, IDataErrorInfo
     private string _name = string.Empty;
     public string Name
     {
-        get
-        {
-            return _name;
-        }
+        get => _name;
         set
         {
             _name = value;
@@ -78,10 +72,7 @@ public class EditStudentViewModel : ViewModelBase, IDataErrorInfo
     private string _lastName = string.Empty;
     public string LastName
     {
-        get
-        {
-            return _lastName;
-        }
+        get => _lastName;
         set
         {
             _lastName = value;
@@ -92,10 +83,7 @@ public class EditStudentViewModel : ViewModelBase, IDataErrorInfo
     private string _pesel = string.Empty;
     public string PESEL
     {
-        get
-        {
-            return _pesel;
-        }
+        get => _pesel;
         set
         {
             _pesel = value;
@@ -103,27 +91,87 @@ public class EditStudentViewModel : ViewModelBase, IDataErrorInfo
         }
     }
 
-    private DateTime? birthDate = null;
+    private DateTime? _birthDate = null;
     public DateTime? BirthDate
     {
-        get
-        {
-            return birthDate;
-        }
+        get => _birthDate;
         set
         {
-            birthDate = value;
+            _birthDate = value;
             OnPropertyChanged(nameof(BirthDate));
+        }
+    }
+
+    private string _gender = string.Empty;
+    public string Gender
+    {
+        get => _gender;
+        set
+        {
+            _gender = value;
+            OnPropertyChanged(nameof(Gender));
+        }
+    }
+
+    private string _placeOfBirth = string.Empty;
+    public string PlaceOfBirth
+    {
+        get => _placeOfBirth;
+        set
+        {
+            _placeOfBirth = value;
+            OnPropertyChanged(nameof(PlaceOfBirth));
+        }
+    }
+
+    private string _placeOfResidence = string.Empty;
+    public string PlaceOfResidence
+    {
+        get => _placeOfResidence;
+        set
+        {
+            _placeOfResidence = value;
+            OnPropertyChanged(nameof(PlaceOfResidence));
+        }
+    }
+
+    private string _addressLine1 = string.Empty;
+    public string AddressLine1
+    {
+        get => _addressLine1;
+        set
+        {
+            _addressLine1 = value;
+            OnPropertyChanged(nameof(AddressLine1));
+        }
+    }
+
+    private string _addressLine2 = string.Empty;
+    public string AddressLine2
+    {
+        get => _addressLine2;
+        set
+        {
+            _addressLine2 = value;
+            OnPropertyChanged(nameof(AddressLine2));
+        }
+    }
+
+    private string _postalCode = string.Empty;
+    public string PostalCode
+    {
+        get => _postalCode;
+        set
+        {
+            _postalCode = value;
+            OnPropertyChanged(nameof(PostalCode));
         }
     }
 
     private string _response = string.Empty;
     public string Response
     {
-        get
-        {
-            return _response;
-        }
+        get => _response;
         set
         {
             _response = value;
@@ -134,10 +182,7 @@ public class EditStudentViewModel : ViewModelBase, IDataErrorInfo
     private long _studentId = 0;
     public long StudentId
     {
-        get
-        {
-            return _studentId;
-        }
+        get => _studentId;
         set
         {
             _studentId = value;
@@ -166,17 +211,7 @@ public class EditStudentViewModel : ViewModelBase, IDataErrorInfo
     }
 
     private ICommand? _back = null;
-    public ICommand Back
-    {
-        get
-        {
-            if (_back is null)
-            {
-                _back = new RelayCommand<object>(NavigateBack);
-            }
-            return _back;
-        }
-    }
+    public ICommand Back => _back ??= new RelayCommand<object>(NavigateBack);
 
     private void NavigateBack(object? obj)
     {
@@ -188,17 +223,7 @@ public class EditStudentViewModel : ViewModelBase, IDataErrorInfo
     }
 
     private ICommand? _save = null;
-    public ICommand Save
-    {
-        get
-        {
-            if (_save is null)
-            {
-                _save = new RelayCommand<object>(SaveData);
-            }
-            return _save;
-        }
-    }
+    public ICommand Save => _save ??= new RelayCommand<object>(SaveData);
 
     private void SaveData(object? obj)
     {
@@ -212,10 +237,17 @@ public class EditStudentViewModel : ViewModelBase, IDataErrorInfo
         {
             return;
         }
+
         _student.Name = Name;
         _student.LastName = LastName;
         _student.PESEL = PESEL;
         _student.BirthDate = BirthDate;
+        _student.Gender = Gender;
+        _student.PlaceOfBirth = PlaceOfBirth;
+        _student.PlaceOfResidence = PlaceOfResidence;
+        _student.AddressLine1 = AddressLine1;
+        _student.AddressLine2 = AddressLine2;
+        _student.PostalCode = PostalCode;
         _student.Subjects = AssignedSubjects.Where(s => s.IsSelected).ToList();
 
         _context.Entry(_student).State = EntityState.Modified;
@@ -239,15 +271,8 @@ public class EditStudentViewModel : ViewModelBase, IDataErrorInfo
 
     private bool IsValid()
     {
-        string[] properties = { "Name", "LastName", "PESEL", "BirthDay" };
-        foreach (string property in properties)
-        {
-            if (!string.IsNullOrEmpty(this[property]))
-            {
-                return false;
-            }
-        }
-        return true;
+        string[] properties = { nameof(Name), nameof(LastName), nameof(PESEL), nameof(BirthDate), nameof(Gender), nameof(PlaceOfBirth), nameof(PlaceOfResidence), nameof(AddressLine1), nameof(PostalCode) };
+        return properties.All(property => string.IsNullOrEmpty(this[property]));
     }
 
     private void LoadStudentData()
@@ -261,24 +286,28 @@ public class EditStudentViewModel : ViewModelBase, IDataErrorInfo
         {
             return;
         }
-        this.Name = _student.Name;
-        this.LastName = _student.LastName;
-        this.PESEL = _student.PESEL;
-        this.BirthDate = _student.BirthDate;
+
+        Name = _student.Name;
+        LastName = _student.LastName;
+        PESEL = _student.PESEL;
+        BirthDate = _student.BirthDate;
+        Gender = _student.Gender;
+        PlaceOfBirth = _student.PlaceOfBirth;
+        PlaceOfResidence = _student.PlaceOfResidence;
+        AddressLine1 = _student.AddressLine1;
+        AddressLine2 = _student.AddressLine2;
+        PostalCode = _student.PostalCode;
+
         if (_student.Subjects is null)
         {
             return;
         }
-        foreach (Subject subject in _student.Subjects)
+        foreach (var subject in _student.Subjects)
         {
-            if (subject is not null && AssignedSubjects is not null)
+            var assignedSubject = AssignedSubjects?.FirstOrDefault(s => s.SubjectId == subject.SubjectId);
+            if (assignedSubject is not null)
             {
-                var assignedSubject = AssignedSubjects
-                    .FirstOrDefault(s => s.SubjectId == subject.SubjectId);
-                if (assignedSubject is not null)
-                { 
-                    assignedSubject.IsSelected = true;
-                }
+                assignedSubject.IsSelected = true;
             }
         }
     }
