@@ -102,17 +102,17 @@ public class EditCourseViewModel : ViewModelBase, IDataErrorInfo
         }
     }
 
-    private long _courseId = 0;
-    public long CourseId
+    private string _course_code = string.Empty;
+    public string Course_Code
     {
         get
         {
-            return _courseId;
+            return _course_code;
         }
         set
         {
-            _courseId = value;
-            OnPropertyChanged(nameof(CourseId));
+            _course_code = value;
+            OnPropertyChanged(nameof(Course_Code));
             LoadCourseData();
         }
     }
@@ -293,7 +293,7 @@ public class EditCourseViewModel : ViewModelBase, IDataErrorInfo
         var courses = _context.Courses;
         if (courses is not null)
         {
-            _course = courses.Find(CourseId);
+            _course = courses.FirstOrDefault(c => c.Course_Code == Course_Code);
             if (_course is null)
             {
                 return;

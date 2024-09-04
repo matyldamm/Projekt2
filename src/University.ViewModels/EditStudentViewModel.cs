@@ -304,7 +304,7 @@ public class EditStudentViewModel : ViewModelBase, IDataErrorInfo
         }
         foreach (var course in _student.Courses)
         {
-            var assignedCourse = AssignedCourses?.FirstOrDefault(s => s.CourseId == course.CourseId);
+            var assignedCourse = AssignedCourses?.FirstOrDefault(s => s.Course_Code == course.Course_Code);
             if (assignedCourse is not null)
             {
                 assignedCourse.IsSelected = true;

@@ -255,16 +255,19 @@ public class SearchViewModel : ViewModelBase
             }
             else if (FirstCondition == "attended by Student with PESEL")
             {
-                long courseId = (long)obj;
-                EditCourseViewModel editCourseViewModel = new EditCourseViewModel(_context, _dialogService)
+                string courseCode = (string)obj;
+                if (courseCode is not null)
                 {
-                    CourseId = courseId
-                };
-                var instance = MainWindowViewModel.Instance();
-                if (instance is not null)
-                {
-                    instance.CoursesSubView = editCourseViewModel;
-                    instance.SelectedTab = 1;
+                    EditCourseViewModel editCourseViewModel = new EditCourseViewModel(_context, _dialogService)
+                    {
+                        Course_Code = courseCode // Set Course_Code instead of CourseId
+                    };
+                    var instance = MainWindowViewModel.Instance();
+                    if (instance is not null)
+                    {
+                        instance.CoursesSubView = editCourseViewModel;
+                        instance.SelectedTab = 1;
+                    }
                 }
             }
         }
@@ -306,19 +309,32 @@ public class SearchViewModel : ViewModelBase
             }
             else if (FirstCondition == "attended by Student with PESEL")
             {
-                long courseId = (long)obj;
-                Course? course = _context.Courses.Find(courseId);
-                if (course is null)
+                try {
+                    string courseCode = (string)obj;
+                if (courseCode is not null)
                 {
-                    return;
+                    Course? course = _context.Courses.FirstOrDefault(c => c.Course_Code == courseCode);
+                    if (course is null)
+                    {
+                        return;
+                    }
+
+                    DialogResult = _dialogService.Show(course.Name);
+                    if (DialogResult == false)
+                    {
+                        return;
+                    }
+
+                    _context.Courses.Remove(course);
+                    _context.SaveChanges();
                 }
-                DialogResult = _dialogService.Show(course.Name);
-                if (DialogResult == false)
+
+                }
+                catch (Exception ex)
                 {
-                    return;
+                    Console.WriteLine($"Zepsute {ex.Message}");
                 }
-                _context.Courses.Remove(course);
-                _context.SaveChanges();
+                
             }
         }
     }

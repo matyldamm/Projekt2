@@ -41,9 +41,9 @@ public class StudentsTest
             };
             List<Course> courses = new List<Course>
             {
-                new Course { CourseId = 1, Name = "Matematyka", Semester = "1", Lecturer = "Michalina Beldzik"},
-                new Course { CourseId = 2, Name = "Biologia", Semester = "2", Lecturer = "Halina Kope�" },
-                new Course { CourseId = 3, Name = "Chemia", Semester = "3", Lecturer = "Jan Nowak" }
+                new Course { Course_Code = "C1", Name = "Matematyka", Semester = "1", Lecturer = "Michalina Beldzik"},
+                new Course { Course_Code = "C2", Name = "Biologia", Semester = "2", Lecturer = "Halina Kope�" },
+                new Course { Course_Code = "C3", Name = "Chemia", Semester = "3", Lecturer = "Jan Nowak" }
             };
             context.Students.AddRange(students);
             context.Courses.AddRange(courses);
@@ -88,7 +88,7 @@ public class StudentsTest
         {
             Random random = new Random();
             int toSkip = random.Next(0, context.Courses.Count());
-            Course course = context.Courses.OrderBy(x => x.CourseId).Skip(toSkip).Take(1).FirstOrDefault();
+            Course course = context.Courses.OrderBy(x => x.Course_Code).Skip(toSkip).Take(1).FirstOrDefault();
             course.IsSelected = true;
 
             AddStudentViewModel addStudentViewModel = new AddStudentViewModel(context, _dialogService)

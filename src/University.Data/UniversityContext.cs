@@ -27,6 +27,7 @@ namespace University.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Course>().HasKey(c => c.Course_Code);
             modelBuilder.Entity<Course>().Ignore(s => s.IsSelected);
 
             modelBuilder.Entity<Student>().HasData(
@@ -35,9 +36,9 @@ namespace University.Data
                 new Student { StudentId = 3, Name = "Eugenia", LastName = "Nowakowicz", PESEL = "PESEL3", BirthDate = new DateTime(2021, 06, 08) });
 
             modelBuilder.Entity<Course>().HasData(
-                new Course { CourseId = 1, Name = "Matematyka", Semester = "1", Lecturer = "Michalina Warszawa" },
-                new Course { CourseId = 2, Name = "Biologia", Semester = "2", Lecturer = "Halina Katowice" },
-                new Course { CourseId = 3, Name = "Chemia", Semester = "3", Lecturer = "Jan Nowak" }
+                new Course { Course_Code = "C1", Name = "Matematyka", Semester = "1", Lecturer = "Michalina Warszawa" },
+                new Course { Course_Code = "C2", Name = "Biologia", Semester = "2", Lecturer = "Halina Katowice" },
+                new Course { Course_Code = "C3", Name = "Chemia", Semester = "3", Lecturer = "Jan Nowak" }
             );
         }
     }

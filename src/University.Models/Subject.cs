@@ -5,7 +5,7 @@ namespace University.Models
 {
     public class Course
     {
-        public long CourseId { get; set; } = 0;
+        public string Course_Code { get; set; } = string.Empty;
         public string Name { get; set; } = string.Empty;
         public string Semester { get; set; } = string.Empty;
         public string Lecturer { get; set; } = string.Empty;

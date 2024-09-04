@@ -84,18 +84,22 @@ public class CoursesViewModel : ViewModelBase
     {
         if (obj is not null)
         {
-            long courseId = (long)obj;
-            EditCourseViewModel editCourseViewModel = new EditCourseViewModel(_context, _dialogService)
+            string courseCode = (string)obj;
+            if (courseCode is not null)
             {
-                CourseId = courseId
-            };
-            var instance = MainWindowViewModel.Instance();
-            if (instance is not null)
-            {
-                instance.CoursesSubView = editCourseViewModel;
+                EditCourseViewModel editCourseViewModel = new EditCourseViewModel(_context, _dialogService)
+                {
+                    Course_Code = courseCode // Set Course_Code instead of CourseId
+                };
+                var instance = MainWindowViewModel.Instance();
+                if (instance is not null)
+                {
+                    instance.CoursesSubView = editCourseViewModel;
+                }
             }
         }
     }
+
 
     private ICommand? _remove = null;
     public ICommand? Remove
@@ -111,24 +115,31 @@ public class CoursesViewModel : ViewModelBase
     }
 
     private void RemoveCourse(object? obj)
+{
+    if (obj is not null)
     {
-        if (obj is not null)
+        string courseCode = (string)obj;
+        if (courseCode is not null)
         {
-            long courseId = (long)obj;
-            Course? course = _context.Courses.Find(courseId);
+            // Find the course by Course_Code
+            Course? course = _context.Courses.FirstOrDefault(c => c.Course_Code == courseCode);
             if (course is not null)
             {
+                // Show dialog with course name
                 DialogResult = _dialogService.Show(course.Name);
                 if (DialogResult == false)
                 {
                     return;
                 }
 
+                // Remove the course and save changes
                 _context.Courses.Remove(course);
                 _context.SaveChanges();
             }
         }
     }
+}
+
 
     public CoursesViewModel(UniversityContext context, IDialogService dialogService)
     {
