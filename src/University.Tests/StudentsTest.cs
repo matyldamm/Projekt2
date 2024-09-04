@@ -35,18 +35,18 @@ public class StudentsTest
             context.Database.EnsureDeleted();
             List<Student> students = new List<Student>
             {
-                new Student { StudentId = 1, Name = "Wieñczys³aw", LastName = "Nowakowicz", PESEL="PESEL1", BirthDate = new DateTime(1987, 05, 22) },
-                new Student { StudentId = 2, Name = "Stanis³aw", LastName = "Nowakowicz", PESEL = "PESEL2", BirthDate = new DateTime(2019, 06, 25) },
+                new Student { StudentId = 1, Name = "Wieï¿½czysï¿½aw", LastName = "Nowakowicz", PESEL="PESEL1", BirthDate = new DateTime(1987, 05, 22) },
+                new Student { StudentId = 2, Name = "Stanisï¿½aw", LastName = "Nowakowicz", PESEL = "PESEL2", BirthDate = new DateTime(2019, 06, 25) },
                 new Student { StudentId = 3, Name = "Eugenia", LastName = "Nowakowicz", PESEL = "PESEL3", BirthDate = new DateTime(2021, 06, 08) }
             };
-            List<Subject> subjects = new List<Subject>
+            List<Course> courses = new List<Course>
             {
-                new Subject { SubjectId = 1, Name = "Matematyka", Semester = "1", Lecturer = "Michalina Beldzik"},
-                new Subject { SubjectId = 2, Name = "Biologia", Semester = "2", Lecturer = "Halina Kopeæ" },
-                new Subject { SubjectId = 3, Name = "Chemia", Semester = "3", Lecturer = "Jan Nowak" }
+                new Course { CourseId = 1, Name = "Matematyka", Semester = "1", Lecturer = "Michalina Beldzik"},
+                new Course { CourseId = 2, Name = "Biologia", Semester = "2", Lecturer = "Halina Kopeï¿½" },
+                new Course { CourseId = 3, Name = "Chemia", Semester = "3", Lecturer = "Jan Nowak" }
             };
             context.Students.AddRange(students);
-            context.Subjects.AddRange(subjects);
+            context.Courses.AddRange(courses);
             context.SaveChanges();
         }
     }
@@ -63,7 +63,7 @@ public class StudentsTest
     }
 
     [TestMethod]
-    public void Add_studend_without_subjects()
+    public void Add_studend_without_courses()
     {
         using UniversityContext context = new UniversityContext(_options);
         {
@@ -82,14 +82,14 @@ public class StudentsTest
     }
 
     [TestMethod]
-    public void Add_studend_with_subjects()
+    public void Add_studend_with_courses()
     {
         using UniversityContext context = new UniversityContext(_options);
         {
             Random random = new Random();
-            int toSkip = random.Next(0, context.Subjects.Count());
-            Subject subject = context.Subjects.OrderBy(x => x.SubjectId).Skip(toSkip).Take(1).FirstOrDefault();
-            subject.IsSelected = true;
+            int toSkip = random.Next(0, context.Courses.Count());
+            Course course = context.Courses.OrderBy(x => x.CourseId).Skip(toSkip).Take(1).FirstOrDefault();
+            course.IsSelected = true;
 
             AddStudentViewModel addStudentViewModel = new AddStudentViewModel(context, _dialogService)
             {
@@ -97,14 +97,14 @@ public class StudentsTest
                 LastName = "Doe II",
                 PESEL = "67111994116",
                 BirthDate = new DateTime(1967, 12, 06),
-                AssignedSubjects = new ObservableCollection<Subject>
+                AssignedCourses = new ObservableCollection<Course>
             {
-                subject
+                course
             }
             };
             addStudentViewModel.Save.Execute(null);
 
-            bool newStudentExists = context.Students.Any(s => s.Name == "John" && s.LastName == "Doe II" && s.PESEL == "67111994116" && s.Subjects.Any());
+            bool newStudentExists = context.Students.Any(s => s.Name == "John" && s.LastName == "Doe II" && s.PESEL == "67111994116" && s.Courses.Any());
             Assert.IsTrue(newStudentExists);
         }
     }

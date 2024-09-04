@@ -67,8 +67,8 @@
                 </WrapPanel>
             </StackPanel>
         </GroupBox>
-        <GroupBox Header="Assigned Subjects" Grid.Row="1" Grid.Column="1" Margin="0,5,5,5" Padding="10">
-            <ItemsControl ItemsSource="{Binding AssignedSubjects}">
+        <GroupBox Header="Assigned Courses" Grid.Row="1" Grid.Column="1" Margin="0,5,5,5" Padding="10">
+            <ItemsControl ItemsSource="{Binding AssignedCourses}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Grid Margin="0,0,0,5">

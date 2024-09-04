@@ -82,17 +82,17 @@ public class SearchViewModel : ViewModelBase
         }
     }
 
-    private bool _areSubjectsVisible;
-    public bool AreSubjectsVisible
+    private bool _areCoursesVisible;
+    public bool AreCoursesVisible
     {
         get
         {
-            return _areSubjectsVisible;
+            return _areCoursesVisible;
         }
         set
         {
-            _areSubjectsVisible = value;
-            OnPropertyChanged(nameof(AreSubjectsVisible));
+            _areCoursesVisible = value;
+            OnPropertyChanged(nameof(AreCoursesVisible));
         }
     }
 
@@ -115,22 +115,22 @@ public class SearchViewModel : ViewModelBase
         }
     }
 
-    private ObservableCollection<Subject>? _subjects = null;
-    public ObservableCollection<Subject>? Subjects
+    private ObservableCollection<Course>? _courses = null;
+    public ObservableCollection<Course>? Courses
     {
         get
         {
-            if (_subjects is null)
+            if (_courses is null)
             {
-                _subjects = new ObservableCollection<Subject>();
-                return _subjects;
+                _courses = new ObservableCollection<Course>();
+                return _courses;
             }
-            return _subjects;
+            return _courses;
         }
         set
         {
-            _subjects = value;
-            OnPropertyChanged(nameof(Subjects));
+            _courses = value;
+            OnPropertyChanged(nameof(Courses));
         }
     }
 
@@ -158,7 +158,7 @@ public class SearchViewModel : ViewModelBase
             {
                 FirstCondition = "who attends";
             }
-            else if (selectedValue == "Subjects")
+            else if (selectedValue == "Courses")
             {
                 FirstCondition = "attended by Student with PESEL";
             }
@@ -183,19 +183,19 @@ public class SearchViewModel : ViewModelBase
         if (FirstCondition == "who attends")
         {
             _context.Database.EnsureCreated();
-            Subject? subject = _context.Subjects.Where(s => s.Name == SecondCondition).FirstOrDefault();
-            if (subject is not null)
+            Course? course = _context.Courses.Where(s => s.Name == SecondCondition).FirstOrDefault();
+            if (course is not null)
             {
                 var students = _context.Students
-                    .Include(s => s.Subjects)
+                    .Include(s => s.Courses)
                     .ToList();
 
                 var filteredStudents = students
-                    .Where(s => s.Subjects != null && s.Subjects.Any(sub => sub.Name == subject.Name))
+                    .Where(s => s.Courses != null && s.Courses.Any(sub => sub.Name == course.Name))
                     .ToList();
 
                 Students = new ObservableCollection<Student>(filteredStudents);
-                AreSubjectsVisible = false;
+                AreCoursesVisible = false;
                 AreStudentsVisible = true;
             }
         }
@@ -207,17 +207,17 @@ public class SearchViewModel : ViewModelBase
                 .FirstOrDefault();
             if (student is not null)
             {
-                var subjects = _context.Subjects
+                var courses = _context.Courses
                     .Include(s => s.Students)
                     .ToList();
 
-                var filteredSubjects = subjects
+                var filteredCourses = courses
                     .Where(s => s.Students != null && s.Students.Any(sub => sub.PESEL == SecondCondition))
                     .ToList();
 
-                Subjects = new ObservableCollection<Subject>(filteredSubjects);
+                Courses = new ObservableCollection<Course>(filteredCourses);
                 AreStudentsVisible = false;
-                AreSubjectsVisible = true;
+                AreCoursesVisible = true;
             }
         }
     }
@@ -255,15 +255,15 @@ public class SearchViewModel : ViewModelBase
             }
             else if (FirstCondition == "attended by Student with PESEL")
             {
-                long subjectId = (long)obj;
-                EditSubjectViewModel editSubjectViewModel = new EditSubjectViewModel(_context, _dialogService)
+                long courseId = (long)obj;
+                EditCourseViewModel editCourseViewModel = new EditCourseViewModel(_context, _dialogService)
                 {
-                    SubjectId = subjectId
+                    CourseId = courseId
                 };
                 var instance = MainWindowViewModel.Instance();
                 if (instance is not null)
                 {
-                    instance.SubjectsSubView = editSubjectViewModel;
+                    instance.CoursesSubView = editCourseViewModel;
                     instance.SelectedTab = 1;
                 }
             }
@@ -306,18 +306,18 @@ public class SearchViewModel : ViewModelBase
             }
             else if (FirstCondition == "attended by Student with PESEL")
             {
-                long subjectId = (long)obj;
-                Subject? subject = _context.Subjects.Find(subjectId);
-                if (subject is null)
+                long courseId = (long)obj;
+                Course? course = _context.Courses.Find(courseId);
+                if (course is null)
                 {
                     return;
                 }
-                DialogResult = _dialogService.Show(subject.Name);
+                DialogResult = _dialogService.Show(course.Name);
                 if (DialogResult == false)
                 {
                     return;
                 }
-                _context.Subjects.Remove(subject);
+                _context.Courses.Remove(course);
                 _context.SaveChanges();
             }
         }
@@ -330,6 +330,6 @@ public class SearchViewModel : ViewModelBase
 
         IsVisible = false;
         AreStudentsVisible = false;
-        AreSubjectsVisible = false;
+        AreCoursesVisible = false;
     }
 }

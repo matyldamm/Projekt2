@@ -22,13 +22,13 @@
     <Compile Update="AddStudentView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="AddSubjectView.xaml.cs">
+    <Compile Update="AddCourseView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="EditStudentView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="EditSubjectView.xaml.cs">
+    <Compile Update="EditCourseView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="SearchView.xaml.cs">
@@ -37,7 +37,7 @@
     <Compile Update="StudentsView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="SubjectsView.xaml.cs">
+    <Compile Update="CoursesView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

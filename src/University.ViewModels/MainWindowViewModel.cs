@@ -37,17 +37,17 @@ public class MainWindowViewModel : ViewModelBase
         }
     }
 
-    private object? _subjectsSubView = null;
-    public object? SubjectsSubView
+    private object? _coursesSubView = null;
+    public object? CoursesSubView
     {
         get
         {
-            return _subjectsSubView;
+            return _coursesSubView;
         }
         set
         {
-            _subjectsSubView = value;
-            OnPropertyChanged(nameof(SubjectsSubView));
+            _coursesSubView = value;
+            OnPropertyChanged(nameof(CoursesSubView));
         }
     }
 
@@ -82,7 +82,7 @@ public class MainWindowViewModel : ViewModelBase
         }
 
         StudentsSubView = new StudentsViewModel(_context, _dialogService);
-        SubjectsSubView = new SubjectsViewModel(_context, _dialogService);
+        CoursesSubView = new CoursesViewModel(_context, _dialogService);
         SearchSubView = new SearchViewModel(_context, _dialogService);
     }
 }

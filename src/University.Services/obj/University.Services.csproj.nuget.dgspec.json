@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Services\\University.Services.csproj": {}
+    "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Services\\University.Services.csproj": {}
   },
   "projects": {
-    "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Controls\\University.Controls.csproj": {
+    "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Controls\\University.Controls.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Controls\\University.Controls.csproj",
+        "projectUniqueName": "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Controls\\University.Controls.csproj",
         "projectName": "University.Controls",
-        "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Controls\\University.Controls.csproj",
+        "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Controls\\University.Controls.csproj",
         "packagesPath": "C:\\Users\\matyl\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Controls\\obj\\",
+        "outputPath": "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Controls\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\matyl\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -26,8 +26,8 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-              "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.ViewModels\\University.ViewModels.csproj": {
-                "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.ViewModels\\University.ViewModels.csproj"
+              "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.ViewModels\\University.ViewModels.csproj": {
+                "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.ViewModels\\University.ViewModels.csproj"
               }
             }
           }
@@ -88,15 +88,15 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.33, 6.0.33]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.33, 6.0.33]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.33, 6.0.33]"
             }
           ],
           "frameworkReferences": {
@@ -107,18 +107,18 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Data\\University.Data.csproj": {
+    "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Data\\University.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Data\\University.Data.csproj",
+        "projectUniqueName": "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Data\\University.Data.csproj",
         "projectName": "University.Data",
-        "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Data\\University.Data.csproj",
+        "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Data\\University.Data.csproj",
         "packagesPath": "C:\\Users\\matyl\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Data\\obj\\",
+        "outputPath": "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\matyl\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -133,8 +133,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Models\\University.Models.csproj": {
-                "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Models\\University.Models.csproj"
+              "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Models\\University.Models.csproj": {
+                "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Models\\University.Models.csproj"
               }
             }
           }
@@ -191,15 +191,15 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.33, 6.0.33]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.33, 6.0.33]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.33, 6.0.33]"
             }
           ],
           "frameworkReferences": {
@@ -207,18 +207,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Extensions\\University.Extensions.csproj": {
+    "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Extensions\\University.Extensions.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Extensions\\University.Extensions.csproj",
+        "projectUniqueName": "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Extensions\\University.Extensions.csproj",
         "projectName": "University.Extensions",
-        "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Extensions\\University.Extensions.csproj",
+        "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Extensions\\University.Extensions.csproj",
         "packagesPath": "C:\\Users\\matyl\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Extensions\\obj\\",
+        "outputPath": "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Extensions\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\matyl\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -263,15 +263,15 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.33, 6.0.33]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.33, 6.0.33]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.33, 6.0.33]"
             }
           ],
           "frameworkReferences": {
@@ -279,18 +279,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Interfaces\\University.Interfaces.csproj": {
+    "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Interfaces\\University.Interfaces.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Interfaces\\University.Interfaces.csproj",
+        "projectUniqueName": "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Interfaces\\University.Interfaces.csproj",
         "projectName": "University.Interfaces",
-        "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Interfaces\\University.Interfaces.csproj",
+        "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Interfaces\\University.Interfaces.csproj",
         "packagesPath": "C:\\Users\\matyl\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Interfaces\\obj\\",
+        "outputPath": "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Interfaces\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\matyl\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -335,15 +335,15 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.33, 6.0.33]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.33, 6.0.33]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.33, 6.0.33]"
             }
           ],
           "frameworkReferences": {
@@ -351,18 +351,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Models\\University.Models.csproj": {
+    "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Models\\University.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Models\\University.Models.csproj",
+        "projectUniqueName": "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Models\\University.Models.csproj",
         "projectName": "University.Models",
-        "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Models\\University.Models.csproj",
+        "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Models\\University.Models.csproj",
         "packagesPath": "C:\\Users\\matyl\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Models\\obj\\",
+        "outputPath": "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Models\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\matyl\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -407,15 +407,15 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.33, 6.0.33]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.33, 6.0.33]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.33, 6.0.33]"
             }
           ],
           "frameworkReferences": {
@@ -423,18 +423,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Services\\University.Services.csproj": {
+    "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Services\\University.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Services\\University.Services.csproj",
+        "projectUniqueName": "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Services\\University.Services.csproj",
         "projectName": "University.Services",
-        "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Services\\University.Services.csproj",
+        "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Services\\University.Services.csproj",
         "packagesPath": "C:\\Users\\matyl\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Services\\obj\\",
+        "outputPath": "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Services\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\matyl\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -449,11 +449,11 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-              "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Controls\\University.Controls.csproj": {
-                "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Controls\\University.Controls.csproj"
+              "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Controls\\University.Controls.csproj": {
+                "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Controls\\University.Controls.csproj"
               },
-              "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Interfaces\\University.Interfaces.csproj": {
-                "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Interfaces\\University.Interfaces.csproj"
+              "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Interfaces\\University.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Interfaces\\University.Interfaces.csproj"
               }
             }
           }
@@ -500,15 +500,15 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.33, 6.0.33]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.33, 6.0.33]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.33, 6.0.33]"
             }
           ],
           "frameworkReferences": {
@@ -519,18 +519,18 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.ViewModels\\University.ViewModels.csproj": {
+    "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.ViewModels\\University.ViewModels.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.ViewModels\\University.ViewModels.csproj",
+        "projectUniqueName": "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.ViewModels\\University.ViewModels.csproj",
         "projectName": "University.ViewModels",
-        "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.ViewModels\\University.ViewModels.csproj",
+        "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.ViewModels\\University.ViewModels.csproj",
         "packagesPath": "C:\\Users\\matyl\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.ViewModels\\obj\\",
+        "outputPath": "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.ViewModels\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\matyl\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -545,14 +545,14 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Data\\University.Data.csproj": {
-                "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Data\\University.Data.csproj"
+              "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Data\\University.Data.csproj": {
+                "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Data\\University.Data.csproj"
               },
-              "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Extensions\\University.Extensions.csproj": {
-                "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Extensions\\University.Extensions.csproj"
+              "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Extensions\\University.Extensions.csproj": {
+                "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Extensions\\University.Extensions.csproj"
               },
-              "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Interfaces\\University.Interfaces.csproj": {
-                "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Interfaces\\University.Interfaces.csproj"
+              "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Interfaces\\University.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Interfaces\\University.Interfaces.csproj"
               }
             }
           }
@@ -591,15 +591,15 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.33, 6.0.33]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.33, 6.0.33]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.31, 6.0.31]"
+              "version": "[6.0.33, 6.0.33]"
             }
           ],
           "frameworkReferences": {
@@ -607,7 +607,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     }

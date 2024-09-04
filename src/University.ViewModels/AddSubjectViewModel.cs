@@ -9,7 +9,7 @@ using University.Models;
 
 namespace University.ViewModels;
 
-public class AddSubjectViewModel : ViewModelBase, IDataErrorInfo
+public class AddCourseViewModel : ViewModelBase, IDataErrorInfo
 {
     private readonly UniversityContext _context;
     private readonly IDialogService _dialogService;
@@ -160,7 +160,7 @@ public class AddSubjectViewModel : ViewModelBase, IDataErrorInfo
         var instance = MainWindowViewModel.Instance();
         if (instance is not null)
         {
-            instance.SubjectsSubView = new SubjectsViewModel(_context, _dialogService);
+            instance.CoursesSubView = new CoursesViewModel(_context, _dialogService);
         }
     }
 
@@ -232,7 +232,7 @@ public class AddSubjectViewModel : ViewModelBase, IDataErrorInfo
             return;
         }
 
-        Subject subject = new Subject
+        Course course = new Course
         {
             Name = this.Name,
             Semester = this.Semester,
@@ -240,13 +240,13 @@ public class AddSubjectViewModel : ViewModelBase, IDataErrorInfo
             Students = AssignedStudents
         };
 
-        _context.Subjects.Add(subject);
+        _context.Courses.Add(course);
         _context.SaveChanges();
 
         Response = "Data Saved";
     }
 
-    public AddSubjectViewModel(UniversityContext context, IDialogService dialogService)
+    public AddCourseViewModel(UniversityContext context, IDialogService dialogService)
     {
         _context = context;
         _dialogService = dialogService;

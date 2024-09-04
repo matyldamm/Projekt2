@@ -4,7 +4,7 @@
 library
 C#
 .cs
-C:\Users\matyl\Documents\Projekt2\AdvancedProgramming2\src\University.Views\obj\Debug\net6.0-windows\
+C:\Users\matyl\Documents\Projekt2\Projekt2\src\University.Views\obj\Debug\net6.0-windows\
 University.Views
 none
 false
@@ -13,7 +13,7 @@ TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 9-497696933
 
 7-1609441233
-2411747505754
+241-568337552
 AddStudentView.xaml;AddSubjectView.xaml;DataTemplates.xaml;EditStudentView.xaml;EditSubjectView.xaml;SearchView.xaml;SharedResources.xaml;StudentsView.xaml;SubjectsView.xaml;
 
 False

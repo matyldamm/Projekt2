@@ -10,7 +10,7 @@ namespace University.Models
         public string LastName { get; set; } = string.Empty;
         public string PESEL { get; set; } = string.Empty;
         public DateTime? BirthDate { get; set; } = null;
-        public virtual ICollection<Subject>? Subjects { get; set; } = null;
+        public virtual ICollection<Course>? Courses { get; set; } = null;
 
         public string Gender { get; set; } = string.Empty;
         public string PlaceOfBirth { get; set; } = string.Empty;

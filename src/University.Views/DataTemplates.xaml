@@ -5,8 +5,8 @@
     <DataTemplate DataType="{x:Type viewmodels:StudentsViewModel}">
         <views:StudentsView />
     </DataTemplate>
-    <DataTemplate DataType="{x:Type viewmodels:SubjectsViewModel}">
-        <views:SubjectsView />
+    <DataTemplate DataType="{x:Type viewmodels:CoursesViewModel}">
+        <views:CoursesView />
     </DataTemplate>
     <DataTemplate DataType="{x:Type viewmodels:AddStudentViewModel}">
         <views:AddStudentView />
@@ -14,11 +14,11 @@
     <DataTemplate DataType="{x:Type viewmodels:EditStudentViewModel}">
         <views:EditStudentView />
     </DataTemplate>
-    <DataTemplate DataType="{x:Type viewmodels:AddSubjectViewModel}">
-        <views:AddSubjectView />
+    <DataTemplate DataType="{x:Type viewmodels:AddCourseViewModel}">
+        <views:AddCourseView />
     </DataTemplate>
-    <DataTemplate DataType="{x:Type viewmodels:EditSubjectViewModel}">
-        <views:EditSubjectView />
+    <DataTemplate DataType="{x:Type viewmodels:EditCourseViewModel}">
+        <views:EditCourseView />
     </DataTemplate>
     <DataTemplate DataType="{x:Type viewmodels:SearchViewModel}">
         <views:SearchView />

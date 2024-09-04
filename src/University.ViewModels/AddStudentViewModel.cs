@@ -178,22 +178,22 @@ public class AddStudentViewModel : ViewModelBase, IDataErrorInfo
         }
     }
 
-    private ObservableCollection<Subject>? _assignedSubjects = null;
-    public ObservableCollection<Subject>? AssignedSubjects
+    private ObservableCollection<Course>? _assignedCourses = null;
+    public ObservableCollection<Course>? AssignedCourses
     {
         get
         {
-            if (_assignedSubjects is null)
+            if (_assignedCourses is null)
             {
-                _assignedSubjects = LoadSubjects();
-                return _assignedSubjects;
+                _assignedCourses = LoadCourses();
+                return _assignedCourses;
             }
-            return _assignedSubjects;
+            return _assignedCourses;
         }
         set
         {
-            _assignedSubjects = value;
-            OnPropertyChanged(nameof(AssignedSubjects));
+            _assignedCourses = value;
+            OnPropertyChanged(nameof(AssignedCourses));
         }
     }
 
@@ -232,7 +232,7 @@ public class AddStudentViewModel : ViewModelBase, IDataErrorInfo
             AddressLine1 = this.AddressLine1,
             AddressLine2 = this.AddressLine2,
             PostalCode = this.PostalCode,
-            Subjects = AssignedSubjects?.Where(s => s.IsSelected).ToList()
+            Courses = AssignedCourses?.Where(s => s.IsSelected).ToList()
         };
 
         _context.Students.Add(student);
@@ -247,11 +247,11 @@ public class AddStudentViewModel : ViewModelBase, IDataErrorInfo
         _dialogService = dialogService;
     }
 
-    private ObservableCollection<Subject> LoadSubjects()
+    private ObservableCollection<Course> LoadCourses()
     {
         _context.Database.EnsureCreated();
-        _context.Subjects.Load();
-        return _context.Subjects.Local.ToObservableCollection();
+        _context.Courses.Load();
+        return _context.Courses.Local.ToObservableCollection();
     }
 
     private bool IsValid()

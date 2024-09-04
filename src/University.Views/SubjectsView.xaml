@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="University.Views.SubjectsView"
+﻿<UserControl x:Class="University.Views.CoursesView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -17,9 +17,9 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <DockPanel Grid.Row="0" LastChildFill="False">
-            <Button Content="Add Subject" Command="{Binding Add}" DockPanel.Dock="Right" Margin="5" Style="{StaticResource PrimaryButton}" Tag="&#xE710;" />
+            <Button Content="Add Course" Command="{Binding Add}" DockPanel.Dock="Right" Margin="5" Style="{StaticResource PrimaryButton}" Tag="&#xE710;" />
         </DockPanel>
-        <ListView Grid.Row="1" ItemsSource="{Binding Subjects}" BorderThickness="0" ItemContainerStyle="{StaticResource ListViewPrimaryItem}">
+        <ListView Grid.Row="1" ItemsSource="{Binding Courses}" BorderThickness="0" ItemContainerStyle="{StaticResource ListViewPrimaryItem}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}">
@@ -70,14 +70,14 @@
                     <GridViewColumn Header="Edit">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Command="{Binding DataContext.Edit, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}" CommandParameter="{Binding SubjectId}" Style="{StaticResource SecondaryButton}" Tag="&#xE70F;" />
+                                <Button Command="{Binding DataContext.Edit, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}" CommandParameter="{Binding CourseId}" Style="{StaticResource SecondaryButton}" Tag="&#xE70F;" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Remove">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Command="{Binding DataContext.Remove, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}" CommandParameter="{Binding SubjectId}" Style="{StaticResource SecondaryButton}" Tag="&#xE74D;" />
+                                <Button Command="{Binding DataContext.Remove, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}" CommandParameter="{Binding CourseId}" Style="{StaticResource SecondaryButton}" Tag="&#xE74D;" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

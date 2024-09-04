@@ -191,22 +191,22 @@ public class EditStudentViewModel : ViewModelBase, IDataErrorInfo
         }
     }
 
-    private ObservableCollection<Subject>? _assignedSubjects = null;
-    public ObservableCollection<Subject> AssignedSubjects
+    private ObservableCollection<Course>? _assignedCourses = null;
+    public ObservableCollection<Course> AssignedCourses
     {
         get
         {
-            if (_assignedSubjects is null)
+            if (_assignedCourses is null)
             {
-                _assignedSubjects = LoadSubjects();
-                return _assignedSubjects;
+                _assignedCourses = LoadCourses();
+                return _assignedCourses;
             }
-            return _assignedSubjects;
+            return _assignedCourses;
         }
         set
         {
-            _assignedSubjects = value;
-            OnPropertyChanged(nameof(AssignedSubjects));
+            _assignedCourses = value;
+            OnPropertyChanged(nameof(AssignedCourses));
         }
     }
 
@@ -248,7 +248,7 @@ public class EditStudentViewModel : ViewModelBase, IDataErrorInfo
         _student.AddressLine1 = AddressLine1;
         _student.AddressLine2 = AddressLine2;
         _student.PostalCode = PostalCode;
-        _student.Subjects = AssignedSubjects.Where(s => s.IsSelected).ToList();
+        _student.Courses = AssignedCourses.Where(s => s.IsSelected).ToList();
 
         _context.Entry(_student).State = EntityState.Modified;
         _context.SaveChanges();
@@ -262,11 +262,11 @@ public class EditStudentViewModel : ViewModelBase, IDataErrorInfo
         _dialogService = dialogService;
     }
 
-    private ObservableCollection<Subject> LoadSubjects()
+    private ObservableCollection<Course> LoadCourses()
     {
         _context.Database.EnsureCreated();
-        _context.Subjects.Load();
-        return _context.Subjects.Local.ToObservableCollection();
+        _context.Courses.Load();
+        return _context.Courses.Local.ToObservableCollection();
     }
 
     private bool IsValid()
@@ -298,16 +298,16 @@ public class EditStudentViewModel : ViewModelBase, IDataErrorInfo
         AddressLine2 = _student.AddressLine2;
         PostalCode = _student.PostalCode;
 
-        if (_student.Subjects is null)
+        if (_student.Courses is null)
         {
             return;
         }
-        foreach (var subject in _student.Subjects)
+        foreach (var course in _student.Courses)
         {
-            var assignedSubject = AssignedSubjects?.FirstOrDefault(s => s.SubjectId == subject.SubjectId);
-            if (assignedSubject is not null)
+            var assignedCourse = AssignedCourses?.FirstOrDefault(s => s.CourseId == course.CourseId);
+            if (assignedCourse is not null)
             {
-                assignedSubject.IsSelected = true;
+                assignedCourse.IsSelected = true;
             }
         }
     }

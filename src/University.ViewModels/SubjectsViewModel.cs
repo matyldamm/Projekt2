@@ -8,7 +8,7 @@ using University.Models;
 
 namespace University.ViewModels;
 
-public class SubjectsViewModel : ViewModelBase
+public class CoursesViewModel : ViewModelBase
 {
     private readonly UniversityContext _context;
     private readonly IDialogService _dialogService;
@@ -26,22 +26,22 @@ public class SubjectsViewModel : ViewModelBase
         }
     }
 
-    private ObservableCollection<Subject>? subjects = null;
-    public ObservableCollection<Subject>? Subjects
+    private ObservableCollection<Course>? courses = null;
+    public ObservableCollection<Course>? Courses
     {
         get
         {
-            if (subjects is null)
+            if (courses is null)
             {
-                subjects = new ObservableCollection<Subject>();
-                return subjects;
+                courses = new ObservableCollection<Course>();
+                return courses;
             }
-            return subjects;
+            return courses;
         }
         set
         {
-            subjects = value;
-            OnPropertyChanged(nameof(Subjects));
+            courses = value;
+            OnPropertyChanged(nameof(Courses));
         }
     }
 
@@ -52,18 +52,18 @@ public class SubjectsViewModel : ViewModelBase
         {
             if (_add is null)
             {
-                _add = new RelayCommand<object>(AddNewSubject);
+                _add = new RelayCommand<object>(AddNewCourse);
             }
             return _add;
         }
     }
 
-    private void AddNewSubject(object? obj)
+    private void AddNewCourse(object? obj)
     {
         var instance = MainWindowViewModel.Instance();
         if (instance is not null)
         {
-            instance.SubjectsSubView = new AddSubjectViewModel(_context, _dialogService);
+            instance.CoursesSubView = new AddCourseViewModel(_context, _dialogService);
         }
     }
 
@@ -74,25 +74,25 @@ public class SubjectsViewModel : ViewModelBase
         {
             if (_edit is null)
             {
-                _edit = new RelayCommand<object>(EditSubject);
+                _edit = new RelayCommand<object>(EditCourse);
             }
             return _edit;
         }
     }
 
-    private void EditSubject(object? obj)
+    private void EditCourse(object? obj)
     {
         if (obj is not null)
         {
-            long subjectId = (long)obj;
-            EditSubjectViewModel editSubjectViewModel = new EditSubjectViewModel(_context, _dialogService)
+            long courseId = (long)obj;
+            EditCourseViewModel editCourseViewModel = new EditCourseViewModel(_context, _dialogService)
             {
-                SubjectId = subjectId
+                CourseId = courseId
             };
             var instance = MainWindowViewModel.Instance();
             if (instance is not null)
             {
-                instance.SubjectsSubView = editSubjectViewModel;
+                instance.CoursesSubView = editCourseViewModel;
             }
         }
     }
@@ -104,39 +104,39 @@ public class SubjectsViewModel : ViewModelBase
         {
             if (_remove is null)
             {
-                _remove = new RelayCommand<object>(RemoveSubject);
+                _remove = new RelayCommand<object>(RemoveCourse);
             }
             return _remove;
         }
     }
 
-    private void RemoveSubject(object? obj)
+    private void RemoveCourse(object? obj)
     {
         if (obj is not null)
         {
-            long subjectId = (long)obj;
-            Subject? subject = _context.Subjects.Find(subjectId);
-            if (subject is not null)
+            long courseId = (long)obj;
+            Course? course = _context.Courses.Find(courseId);
+            if (course is not null)
             {
-                DialogResult = _dialogService.Show(subject.Name);
+                DialogResult = _dialogService.Show(course.Name);
                 if (DialogResult == false)
                 {
                     return;
                 }
 
-                _context.Subjects.Remove(subject);
+                _context.Courses.Remove(course);
                 _context.SaveChanges();
             }
         }
     }
 
-    public SubjectsViewModel(UniversityContext context, IDialogService dialogService)
+    public CoursesViewModel(UniversityContext context, IDialogService dialogService)
     {
         _context = context;
         _dialogService = dialogService;
 
         _context.Database.EnsureCreated();
-        _context.Subjects.Load();
-        Subjects = _context.Subjects.Local.ToObservableCollection();
+        _context.Courses.Load();
+        Courses = _context.Courses.Local.ToObservableCollection();
     }
 }

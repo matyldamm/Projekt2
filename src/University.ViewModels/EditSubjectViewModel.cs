@@ -9,11 +9,11 @@ using University.Models;
 
 namespace University.ViewModels;
 
-public class EditSubjectViewModel : ViewModelBase, IDataErrorInfo
+public class EditCourseViewModel : ViewModelBase, IDataErrorInfo
 {
     private readonly UniversityContext _context;
     private readonly IDialogService _dialogService;
-    private Subject? _subject = new Subject();
+    private Course? _course = new Course();
 
     public string Error => string.Empty;
 
@@ -102,18 +102,18 @@ public class EditSubjectViewModel : ViewModelBase, IDataErrorInfo
         }
     }
 
-    private long _subjectId = 0;
-    public long SubjectId
+    private long _courseId = 0;
+    public long CourseId
     {
         get
         {
-            return _subjectId;
+            return _courseId;
         }
         set
         {
-            _subjectId = value;
-            OnPropertyChanged(nameof(SubjectId));
-            LoadSubjectData();
+            _courseId = value;
+            OnPropertyChanged(nameof(CourseId));
+            LoadCourseData();
         }
     }
 
@@ -173,7 +173,7 @@ public class EditSubjectViewModel : ViewModelBase, IDataErrorInfo
         var instance = MainWindowViewModel.Instance();
         if (instance is not null)
         {
-            instance.SubjectsSubView = new SubjectsViewModel(_context, _dialogService);
+            instance.CoursesSubView = new CoursesViewModel(_context, _dialogService);
         }
     }
 
@@ -246,23 +246,23 @@ public class EditSubjectViewModel : ViewModelBase, IDataErrorInfo
             return;
         }
 
-        if (_subject is null)
+        if (_course is null)
         {
             return;
         }
 
-        _subject.Name = Name;
-        _subject.Semester = Semester;
-        _subject.Lecturer = Lecturer;
-        _subject.Students = AssignedStudents;
+        _course.Name = Name;
+        _course.Semester = Semester;
+        _course.Lecturer = Lecturer;
+        _course.Students = AssignedStudents;
 
-        _context.Entry(_subject).State = EntityState.Modified;
+        _context.Entry(_course).State = EntityState.Modified;
         _context.SaveChanges();
 
         Response = "Data Saved";
     }
 
-    public EditSubjectViewModel(UniversityContext context, IDialogService dialogService)
+    public EditCourseViewModel(UniversityContext context, IDialogService dialogService)
     {
         _context = context;
         _dialogService = dialogService;
@@ -288,23 +288,23 @@ public class EditSubjectViewModel : ViewModelBase, IDataErrorInfo
         return true;
     }
 
-    private void LoadSubjectData()
+    private void LoadCourseData()
     {
-        var subjects = _context.Subjects;
-        if (subjects is not null)
+        var courses = _context.Courses;
+        if (courses is not null)
         {
-            _subject = subjects.Find(SubjectId);
-            if (_subject is null)
+            _course = courses.Find(CourseId);
+            if (_course is null)
             {
                 return;
             }
-            this.Name = _subject.Name;
-            this.Semester = _subject.Semester;
-            this.Lecturer = _subject.Lecturer;
-            if (_subject.Students is not null)
+            this.Name = _course.Name;
+            this.Semester = _course.Semester;
+            this.Lecturer = _course.Lecturer;
+            if (_course.Students is not null)
             {
                 this.AssignedStudents =
-                    new ObservableCollection<Student>(_subject.Students);
+                    new ObservableCollection<Student>(_course.Students);
             }
         }
     }

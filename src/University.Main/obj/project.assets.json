@@ -2767,11 +2767,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Main\\University.Main.csproj",
+      "projectUniqueName": "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Main\\University.Main.csproj",
       "projectName": "University.Main",
-      "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Main\\University.Main.csproj",
+      "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Main\\University.Main.csproj",
       "packagesPath": "C:\\Users\\matyl\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Main\\obj\\",
+      "outputPath": "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Main\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\matyl\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -2786,20 +2786,20 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Controls\\University.Controls.csproj": {
-              "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Controls\\University.Controls.csproj"
+            "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Controls\\University.Controls.csproj": {
+              "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Controls\\University.Controls.csproj"
             },
-            "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Data\\University.Data.csproj": {
-              "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Data\\University.Data.csproj"
+            "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Data\\University.Data.csproj": {
+              "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Data\\University.Data.csproj"
             },
-            "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Interfaces\\University.Interfaces.csproj": {
-              "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Interfaces\\University.Interfaces.csproj"
+            "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Interfaces\\University.Interfaces.csproj": {
+              "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Interfaces\\University.Interfaces.csproj"
             },
-            "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Services\\University.Services.csproj": {
-              "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Services\\University.Services.csproj"
+            "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Services\\University.Services.csproj": {
+              "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Services\\University.Services.csproj"
             },
-            "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Views\\University.Views.csproj": {
-              "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Views\\University.Views.csproj"
+            "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Views\\University.Views.csproj": {
+              "projectPath": "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Views\\University.Views.csproj"
             }
           }
         }
@@ -2864,19 +2864,19 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[6.0.31, 6.0.31]"
+            "version": "[6.0.33, 6.0.33]"
           },
           {
             "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[6.0.31, 6.0.31]"
+            "version": "[6.0.33, 6.0.33]"
           },
           {
             "name": "Microsoft.NETCore.App.Ref",
-            "version": "[6.0.31, 6.0.31]"
+            "version": "[6.0.33, 6.0.33]"
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[6.0.31, 6.0.31]"
+            "version": "[6.0.33, 6.0.33]"
           }
         ],
         "frameworkReferences": {
@@ -2887,7 +2887,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.304\\RuntimeIdentifierGraph.json"
       }
     }
   }

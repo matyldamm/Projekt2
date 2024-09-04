@@ -28,7 +28,7 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
                 <system:String>Students</system:String>
-                <system:String>Subjects</system:String>
+                <system:String>Courses</system:String>
             </ComboBox>
             <TextBlock Text="{Binding FirstCondition}" VerticalAlignment="Center" />
             <TextBox Text="{Binding SecondCondition}" VerticalAlignment="Center" Height="22"  Width="200" Margin="5,0" Visibility="{Binding Path=IsVisible, Converter={StaticResource BoolToVis}}" />
@@ -65,11 +65,11 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Subjects" Width="200">
+                    <GridViewColumn Header="Courses" Width="200">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <Expander Header="View" Padding="2">
-                                    <ItemsControl ItemsSource="{Binding Subjects}">
+                                    <ItemsControl ItemsSource="{Binding Courses}">
                                         <ItemsControl.ItemTemplate>
                                             <DataTemplate>
                                                 <Grid Margin="0,0,0,5">
@@ -99,7 +99,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <ListView Visibility="{Binding Path=AreSubjectsVisible, Converter={StaticResource BoolToVis}}" Grid.Row="1" ItemsSource="{Binding Subjects}" BorderThickness="0" ItemContainerStyle="{StaticResource ListViewPrimaryItem}">
+        <ListView Visibility="{Binding Path=AreCoursesVisible, Converter={StaticResource BoolToVis}}" Grid.Row="1" ItemsSource="{Binding Courses}" BorderThickness="0" ItemContainerStyle="{StaticResource ListViewPrimaryItem}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}">
@@ -150,14 +150,14 @@
                     <GridViewColumn Header="Edit">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Command="{Binding DataContext.Edit, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}" CommandParameter="{Binding SubjectId}" Style="{StaticResource SecondaryButton}" Tag="&#xE70F;" />
+                                <Button Command="{Binding DataContext.Edit, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}" CommandParameter="{Binding CourseId}" Style="{StaticResource SecondaryButton}" Tag="&#xE70F;" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Remove">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Command="{Binding DataContext.Remove, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}" CommandParameter="{Binding SubjectId}" Style="{StaticResource SecondaryButton}" Tag="&#xE74D;" />
+                                <Button Command="{Binding DataContext.Remove, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}" CommandParameter="{Binding CourseId}" Style="{StaticResource SecondaryButton}" Tag="&#xE74D;" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

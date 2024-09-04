@@ -92,11 +92,11 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Subjects" Width="200">
+                    <GridViewColumn Header="Courses" Width="200">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <Expander Header="View" Padding="2">
-                                    <ItemsControl ItemsSource="{Binding Subjects}">
+                                    <ItemsControl ItemsSource="{Binding Courses}">
                                         <ItemsControl.ItemTemplate>
                                             <DataTemplate>
                                                 <Grid Margin="0,0,0,5">

@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "bN/q92FxjIQ=",
+  "dgSpecHash": "rAvF//I6dr0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\matyl\\Documents\\Projekt2\\AdvancedProgramming2\\src\\University.Interfaces\\University.Interfaces.csproj",
+  "projectFilePath": "C:\\Users\\matyl\\Documents\\Projekt2\\Projekt2\\src\\University.Interfaces\\University.Interfaces.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\matyl\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.31\\microsoft.netcore.app.ref.6.0.31.nupkg.sha512",
-    "C:\\Users\\matyl\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.31\\microsoft.windowsdesktop.app.ref.6.0.31.nupkg.sha512",
-    "C:\\Users\\matyl\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.31\\microsoft.aspnetcore.app.ref.6.0.31.nupkg.sha512"
+    "C:\\Users\\matyl\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.33\\microsoft.netcore.app.ref.6.0.33.nupkg.sha512",
+    "C:\\Users\\matyl\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.33\\microsoft.windowsdesktop.app.ref.6.0.33.nupkg.sha512",
+    "C:\\Users\\matyl\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.33\\microsoft.aspnetcore.app.ref.6.0.33.nupkg.sha512"
   ],
   "logs": []
 }

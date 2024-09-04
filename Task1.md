@@ -34,7 +34,7 @@ These properties should be rendered in Student related controls and views.
 
 -----------------------------------
 
-2. Rename Subject entity to Course and modify it such that it has the following properties:
+2. Rename Course entity to Course and modify it such that it has the following properties:
 
 * Course Code (string)
 * Title (string)
