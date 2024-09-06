@@ -2,273 +2,283 @@
 using Microsoft.EntityFrameworkCore;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows.Input;
 using University.Data;
 using University.Interfaces;
 using University.Models;
 
-namespace University.ViewModels;
-
-public class AddCourseViewModel : ViewModelBase, IDataErrorInfo
+namespace University.ViewModels
 {
-    private readonly UniversityContext _context;
-    private readonly IDialogService _dialogService;
-
-    public string Error
+    public class AddCourseViewModel : ViewModelBase, IDataErrorInfo
     {
-        get { return string.Empty; }
-    }
+        private readonly UniversityContext _context;
+        private readonly IDialogService _dialogService;
 
-    public string this[string columnName]
-    {
-        get
+        public string Error => string.Empty;
+
+        public string this[string columnName]
         {
-            if (columnName == "Name")
+            get
             {
-                if (string.IsNullOrEmpty(Name))
+                // Validation logic for all fields including Course_Code
+                if (columnName == nameof(Course_Code) && string.IsNullOrEmpty(Course_Code))
                 {
-                    return "Name is Required";
+                    return "Course code is required.";
+                }
+                if (columnName == nameof(Title) && string.IsNullOrEmpty(Title))
+                {
+                    return "Title is required.";
+                }
+                if (columnName == nameof(Schedule) && string.IsNullOrEmpty(Schedule))
+                {
+                    return "Schedule is required.";
+                }
+                if (columnName == nameof(Instructor) && string.IsNullOrEmpty(Instructor))
+                {
+                    return "Instructor is required.";
+                }
+                if (columnName == nameof(Description) && string.IsNullOrEmpty(Description))
+                {
+                    return "Description is required.";
+                }
+                if (columnName == nameof(Credits) && Credits <= 0)
+                {
+                    return "Credits must be greater than 0.";
+                }
+                if (columnName == nameof(Department) && string.IsNullOrEmpty(Department))
+                {
+                    return "Department is required.";
+                }
+                return string.Empty;
+            }
+        }
+
+        // Properties for all fields
+        private string _courseCode = string.Empty;
+        public string Course_Code
+        {
+            get => _courseCode;
+            set
+            {
+                _courseCode = value;
+                OnPropertyChanged(nameof(Course_Code));
+            }
+        }
+
+        private string _title = string.Empty;
+        public string Title
+        {
+            get => _title;
+            set
+            {
+                _title = value;
+                OnPropertyChanged(nameof(Title));
+            }
+        }
+
+        private string _schedule = string.Empty;
+        public string Schedule
+        {
+            get => _schedule;
+            set
+            {
+                _schedule = value;
+                OnPropertyChanged(nameof(Schedule));
+            }
+        }
+
+        private string _instructor = string.Empty;
+        public string Instructor
+        {
+            get => _instructor;
+            set
+            {
+                _instructor = value;
+                OnPropertyChanged(nameof(Instructor));
+            }
+        }
+
+        private string _description = string.Empty;
+        public string Description
+        {
+            get => _description;
+            set
+            {
+                _description = value;
+                OnPropertyChanged(nameof(Description));
+            }
+        }
+
+        private int _credits;
+        public int Credits
+        {
+            get => _credits;
+            set
+            {
+                _credits = value;
+                OnPropertyChanged(nameof(Credits));
+            }
+        }
+
+        private string _department = string.Empty;
+        public string Department
+        {
+            get => _department;
+            set
+            {
+                _department = value;
+                OnPropertyChanged(nameof(Department));
+            }
+        }
+
+        private string _prerequisites = string.Empty;
+        public string Prerequisites
+        {
+            get => _prerequisites;
+            set
+            {
+                _prerequisites = value;
+                OnPropertyChanged(nameof(Prerequisites));
+            }
+        }
+
+        private string _response = string.Empty;
+        public string Response
+        {
+            get => _response;
+            set
+            {
+                _response = value;
+                OnPropertyChanged(nameof(Response));
+            }
+        }
+
+        private ObservableCollection<Student>? _availableStudents;
+        public ObservableCollection<Student> AvailableStudents
+        {
+            get => _availableStudents ??= LoadStudents();
+            set
+            {
+                _availableStudents = value;
+                OnPropertyChanged(nameof(AvailableStudents));
+            }
+        }
+
+        private ObservableCollection<Student>? _assignedStudents;
+        public ObservableCollection<Student> AssignedStudents
+        {
+            get => _assignedStudents ??= new ObservableCollection<Student>();
+            set
+            {
+                _assignedStudents = value;
+                OnPropertyChanged(nameof(AssignedStudents));
+            }
+        }
+
+        private ICommand? _back;
+        public ICommand Back => _back ??= new RelayCommand<object>(NavigateBack);
+
+        private void NavigateBack(object? obj)
+        {
+            var instance = MainWindowViewModel.Instance();
+            if (instance != null)
+            {
+                instance.CoursesSubView = new CoursesViewModel(_context, _dialogService);
+            }
+        }
+
+        private ICommand? _add;
+        public ICommand Add => _add ??= new RelayCommand<object>(AddStudent);
+
+        private void AddStudent(object? obj)
+        {
+            if (obj is Student student)
+            {
+                if (!AssignedStudents.Contains(student))
+                {
+                    AssignedStudents.Add(student);
                 }
             }
-            if (columnName == "Semester")
+        }
+
+        private ICommand? _remove;
+        public ICommand Remove => _remove ??= new RelayCommand<object>(RemoveStudent);
+
+        private void RemoveStudent(object? obj)
+        {
+            if (obj is Student student)
             {
-                if (string.IsNullOrEmpty(Semester))
-                {
-                    return "Semester is Required";
-                }
+                AssignedStudents.Remove(student);
             }
-            if (columnName == "Lecturer")
+        }
+
+        private ICommand? _save;
+        public ICommand Save => _save ??= new RelayCommand<object>(SaveData);
+
+        private void SaveData(object? obj)
+        {
+            if (!IsValid())
             {
-                if (string.IsNullOrEmpty(Lecturer))
-                {
-                    return "Lecturer is Required";
-                }
-            }
-            return string.Empty;
-        }
-    }
-
-    private string _name = string.Empty;
-    public string Name
-    {
-        get
-        {
-            return _name;
-        }
-        set
-        {
-            _name = value;
-            OnPropertyChanged(nameof(Name));
-        }
-    }
-
-    private string _semester = string.Empty;
-    public string Semester
-    {
-        get
-        {
-            return _semester;
-        }
-        set
-        {
-            _semester = value;
-            OnPropertyChanged(nameof(Semester));
-        }
-    }
-
-    private string _lecturer = string.Empty;
-    public string Lecturer
-    {
-        get
-        {
-            return _lecturer;
-        }
-        set
-        {
-            _lecturer = value;
-            OnPropertyChanged(nameof(Lecturer));
-        }
-    }
-
-    private string _response = string.Empty;
-    public string Response
-    {
-        get
-        {
-            return _response;
-        }
-        set
-        {
-            _response = value;
-            OnPropertyChanged(nameof(Response));
-        }
-    }
-
-    private ObservableCollection<Student>? _availableStudents = null;
-    public ObservableCollection<Student> AvailableStudents
-    {
-        get
-        {
-            if (_availableStudents is null)
-            {
-                _availableStudents = LoadStudents();
-                return _availableStudents;
-            }
-            return _availableStudents;
-        }
-        set
-        {
-            _availableStudents = value;
-            OnPropertyChanged(nameof(AvailableStudents));
-        }
-    }
-
-    private ObservableCollection<Student>? _assignedStudents = null;
-    public ObservableCollection<Student> AssignedStudents
-    {
-        get
-        {
-            if (_assignedStudents is null)
-            {
-                _assignedStudents = new ObservableCollection<Student>();
-                return _assignedStudents;
-            }
-            return _assignedStudents;
-        }
-        set
-        {
-            _assignedStudents = value;
-            OnPropertyChanged(nameof(AssignedStudents));
-        }
-    }
-
-    private ICommand? _back = null;
-    public ICommand Back
-    {
-        get
-        {
-            if (_back is null)
-            {
-                _back = new RelayCommand<object>(NavigateBack);
-            }
-            return _back;
-        }
-    }
-
-    private void NavigateBack(object? obj)
-    {
-        var instance = MainWindowViewModel.Instance();
-        if (instance is not null)
-        {
-            instance.CoursesSubView = new CoursesViewModel(_context, _dialogService);
-        }
-    }
-
-    private ICommand? _add = null;
-    public ICommand Add
-    {
-        get
-        {
-            if (_add is null)
-            {
-                _add = new RelayCommand<object>(AddStudent);
-            }
-            return _add;
-        }
-    }
-
-    private void AddStudent(object? obj)
-    {
-        if (obj is Student student)
-        {
-
-            if (AssignedStudents.Contains(student))
-            {
+                Response = "Please complete all required fields.";
                 return;
             }
-            AssignedStudents.Add(student);
-        }
-    }
+            
+            bool courseExists = _context.Courses.Any(c => c.Course_Code == Course_Code);
 
-    private ICommand? _remove = null;
-    public ICommand Remove
-    {
-        get
-        {
-            if (_remove is null)
+            if (courseExists)
             {
-                _remove = new RelayCommand<object>(RemoveStudent);
+                Response = "Course with this Course_Code already exists.";
+                return;
             }
-            return _remove;
-        }
-    }
 
-    private void RemoveStudent(object? obj)
-    {
-        if (obj is Student student)
-        {
-            AssignedStudents.Remove(student);
-        }
-    }
-
-    private ICommand? _save = null;
-    public ICommand Save
-    {
-        get
-        {
-            if (_save is null)
+            var course = new Course
             {
-                _save = new RelayCommand<object>(SaveData);
-            }
-            return _save;
+                Course_Code = Course_Code, 
+                Title = Title,
+                Schedule = Schedule,
+                Instructor = Instructor,
+                Description = Description,
+                Credits = Credits,
+                Department = Department,
+                Prerequisites = Prerequisites.Split(',').Select(p => p.Trim()).ToList(),
+                Students = AssignedStudents.ToList()
+            };
+
+            _context.Courses.Add(course);
+            _context.SaveChanges();
+
+            string assignedStudentsList = string.Join(", ",  course.Students.Select(s => s.Name));
+
+            // Prepare the response message
+            Response = $"Course saved successfully. Students assigned: {assignedStudentsList}";
         }
-    }
 
-    private void SaveData(object? obj)
-    {
-        if (!IsValid())
+
+        public AddCourseViewModel(UniversityContext context, IDialogService dialogService)
         {
-            Response = "Please complete all required fields";
-            return;
+            _context = context;
+            _dialogService = dialogService;
         }
 
-        Course course = new Course
+        private ObservableCollection<Student> LoadStudents()
         {
-            Name = this.Name,
-            Semester = this.Semester,
-            Lecturer = this.Lecturer,
-            Students = AssignedStudents
-        };
+            _context.Database.EnsureCreated();
+            _context.Students.Load();
+            return _context.Students.Local.ToObservableCollection();
+        }
 
-        _context.Courses.Add(course);
-        _context.SaveChanges();
-
-        Response = "Data Saved";
-    }
-
-    public AddCourseViewModel(UniversityContext context, IDialogService dialogService)
-    {
-        _context = context;
-        _dialogService = dialogService;
-    }
-
-    private ObservableCollection<Student> LoadStudents()
-    {
-        _context.Database.EnsureCreated();
-        _context.Students.Load();
-        return _context.Students.Local.ToObservableCollection();
-    }
-
-    private bool IsValid()
-    {
-        string[] properties = { "Name", "Semester", "Lecturer" };
-        foreach (string property in properties)
+        private bool IsValid()
         {
-            if (!string.IsNullOrEmpty(this[property]))
+            string[] properties = { nameof(Course_Code), nameof(Title), nameof(Schedule), nameof(Instructor), nameof(Description), nameof(Credits), nameof(Department) };
+            foreach (string property in properties)
             {
-                return false;
+                if (!string.IsNullOrEmpty(this[property]))
+                {
+                    return false;
+                }
             }
+            return true;
         }
-        return true;
     }
 }

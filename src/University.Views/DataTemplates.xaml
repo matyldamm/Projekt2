@@ -23,4 +23,22 @@
     <DataTemplate DataType="{x:Type viewmodels:SearchViewModel}">
         <views:SearchView />
     </DataTemplate>
+    <DataTemplate DataType="{x:Type viewmodels:FacultyMemberViewModel}">
+        <views:FacultyMemberView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewmodels:AddFacultyMemberViewModel}">
+        <views:AddFacultyMemberView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewmodels:EditFacultyMemberViewModel}">
+        <views:EditFacultyMemberView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewmodels:ResearchProjectViewModel}">
+        <views:ResearchProjectView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewmodels:AddResearchProjectViewModel}">
+        <views:AddResearchProjectView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewmodels:EditResearchProjectViewModel}">
+        <views:EditResearchProjectView />
+    </DataTemplate>
 </ResourceDictionary>

@@ -40,6 +40,24 @@
     <Compile Update="CoursesView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="AddFacultyMemberView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EditFacultyMemberView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="FacultyMemberView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+     <Compile Update="AddResearchProjectView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EditResearchProjectView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ResearchProjectView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 
 

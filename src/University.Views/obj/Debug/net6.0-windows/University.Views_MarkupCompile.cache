@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 
-9-497696933
+15-2115198565
 
-7-1609441233
+13494344128
 241-568337552
-AddStudentView.xaml;AddSubjectView.xaml;DataTemplates.xaml;EditStudentView.xaml;EditSubjectView.xaml;SearchView.xaml;SharedResources.xaml;StudentsView.xaml;SubjectsView.xaml;
+AddFacultyMemberView.xaml;AddResearchProjectView.xaml;AddStudentView.xaml;AddSubjectView.xaml;DataTemplates.xaml;EditFacultyMemberView.xaml;EditResearchProjectView.xaml;EditStudentView.xaml;EditSubjectView.xaml;FacultyMemberView.xaml;ResearchProjectView.xaml;SearchView.xaml;SharedResources.xaml;StudentsView.xaml;SubjectsView.xaml;
 
 False
 

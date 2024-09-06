@@ -1,6 +1,7 @@
 ﻿using System;
 using University.Interfaces;
 using University.Data;
+using University.Models;
 
 namespace University.ViewModels;
 
@@ -65,6 +66,32 @@ public class MainWindowViewModel : ViewModelBase
         }
     }
 
+    private object? _facultyMemberSubView = null;
+    public object? FacultyMembersSubView
+    {
+        get
+        {
+            return _facultyMemberSubView;
+        }
+        set
+        {
+            _facultyMemberSubView = value;
+            OnPropertyChanged(nameof(FacultyMembersSubView));
+        }
+    }
+
+    private object? _researchProjectsSubView = null;
+        public object? ResearchProjectsSubView
+        {
+            get => _researchProjectsSubView;
+            set
+            {
+                _researchProjectsSubView = value;
+                OnPropertyChanged(nameof(ResearchProjectsSubView));
+            }
+        }
+
+
     private static MainWindowViewModel? _instance = null;
     public static MainWindowViewModel? Instance()
     {
@@ -84,5 +111,7 @@ public class MainWindowViewModel : ViewModelBase
         StudentsSubView = new StudentsViewModel(_context, _dialogService);
         CoursesSubView = new CoursesViewModel(_context, _dialogService);
         SearchSubView = new SearchViewModel(_context, _dialogService);
+        FacultyMembersSubView = new FacultyMemberViewModel(_context, _dialogService);
+        ResearchProjectsSubView = new ResearchProjectViewModel(_context, _dialogService);
     }
 }

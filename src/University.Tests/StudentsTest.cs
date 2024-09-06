@@ -41,10 +41,38 @@ public class StudentsTest
             };
             List<Course> courses = new List<Course>
             {
-                new Course { Course_Code = "C1", Name = "Matematyka", Semester = "1", Lecturer = "Michalina Beldzik"},
-                new Course { Course_Code = "C2", Name = "Biologia", Semester = "2", Lecturer = "Halina Kope�" },
-                new Course { Course_Code = "C3", Name = "Chemia", Semester = "3", Lecturer = "Jan Nowak" }
+                new Course { 
+                    Course_Code = "C1", 
+                    Title = "Matematyka", 
+                    Instructor = "Michalina Beldzik", 
+                    Schedule = "Fall 2024", 
+                    Description = "Basic Mathematics", 
+                    Credits = 5, 
+                    Department = "Mathematics", 
+                    Prerequisites = new List<string> { "None" }
+                },
+                new Course { 
+                    Course_Code = "C2", 
+                    Title = "Biologia", 
+                    Instructor = "Halina Kopeć", 
+                    Schedule = "Spring 2024", 
+                    Description = "Introduction to Biology", 
+                    Credits = 4, 
+                    Department = "Biology", 
+                    Prerequisites = new List<string> { "None" }
+                },
+                new Course { 
+                    Course_Code = "C3", 
+                    Title = "Chemia", 
+                    Instructor = "Jan Nowak", 
+                    Schedule = "Winter 2024", 
+                    Description = "Basic Chemistry", 
+                    Credits = 4, 
+                    Department = "Chemistry", 
+                    Prerequisites = new List<string> { "None" }
+                }
             };
+
             context.Students.AddRange(students);
             context.Courses.AddRange(courses);
             context.SaveChanges();

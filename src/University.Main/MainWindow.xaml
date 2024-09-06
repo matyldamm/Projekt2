@@ -25,6 +25,12 @@
             <TabItem Header="Search" Tag="&#xE773;">
                 <ContentControl Content="{Binding SearchSubView}" />
             </TabItem>
+            <TabItem Header="FacultyMembers" Tag="&#xE773;">
+                <ContentControl Content="{Binding FacultyMembersSubView}" />
+            </TabItem>
+            <TabItem Header="ResearchProjects" Tag="&#xE773;">
+                <ContentControl Content="{Binding ResearchProjectsSubView}" />
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>

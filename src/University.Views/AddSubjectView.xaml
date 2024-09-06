@@ -23,26 +23,96 @@
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Button Content="Back" Grid.Row="0" Grid.Column="0" Command="{Binding Back}" Margin="5,5,5,0" Width="100" HorizontalAlignment="Left" Style="{StaticResource PrimaryButton}" Tag="&#xE72B;" />
-        <Button Content="Save" Grid.Row="0" Grid.Column="3" Command="{Binding Save}" Margin="5,5,5,0" Width="100" HorizontalAlignment="Right" Style="{StaticResource PrimaryButton}" Tag="&#xE74E;" />
-        <GroupBox Header="Course Data" Grid.Row="1" Grid.Column="0" Margin="5" Padding="10">
+
+        <!-- Back Button -->
+        <Button Content="Back" 
+                Grid.Row="0" 
+                Grid.Column="0" 
+                Command="{Binding Back}" 
+                Margin="5,5,5,0" 
+                Width="100" 
+                HorizontalAlignment="Left" 
+                Style="{StaticResource PrimaryButton}" 
+                Tag="&#xE72B;" />
+
+        <!-- Save Button -->
+        <Button Content="Save" 
+                Grid.Row="0" 
+                Grid.Column="3" 
+                Command="{Binding Save}" 
+                Margin="5,5,5,0" 
+                Width="100" 
+                HorizontalAlignment="Right" 
+                Style="{StaticResource PrimaryButton}" 
+                Tag="&#xE74E;" />
+
+        <!-- Course Data Group -->
+        <GroupBox Header="Course Data" 
+                  Grid.Row="1" 
+                  Grid.Column="0" 
+                  Margin="5" 
+                  Padding="10">
             <StackPanel>
                 <WrapPanel Margin="0,0,0,5">
-                    <TextBlock Text="Name" Style="{StaticResource PrimaryTextBlock}" />
-                    <TextBox Text="{Binding Name, ValidatesOnDataErrors=True}" Style="{StaticResource PrimaryTextBox}" />
+                    <TextBlock Text="Course Code" 
+                               Style="{StaticResource PrimaryTextBlock}" />
+                    <TextBox Text="{Binding Course_Code, ValidatesOnDataErrors=True}" 
+                             Style="{StaticResource PrimaryTextBox}" />
                 </WrapPanel>
                 <WrapPanel Margin="0,0,0,5">
-                    <TextBlock Text="Semester" Style="{StaticResource PrimaryTextBlock}" />
-                    <TextBox Text="{Binding Semester, ValidatesOnDataErrors=True}" Style="{StaticResource PrimaryTextBox}" />
+                    <TextBlock Text="Title" 
+                               Style="{StaticResource PrimaryTextBlock}" />
+                    <TextBox Text="{Binding Title, ValidatesOnDataErrors=True}" 
+                             Style="{StaticResource PrimaryTextBox}" />
                 </WrapPanel>
                 <WrapPanel Margin="0,0,0,5">
-                    <TextBlock Text="Lecturer" Style="{StaticResource PrimaryTextBlock}" />
-                    <TextBox Text="{Binding Lecturer, ValidatesOnDataErrors=True}" Style="{StaticResource PrimaryTextBox}" />
+                    <TextBlock Text="Schedule" 
+                               Style="{StaticResource PrimaryTextBlock}" />
+                    <TextBox Text="{Binding Schedule, ValidatesOnDataErrors=True}" 
+                             Style="{StaticResource PrimaryTextBox}" />
+                </WrapPanel>
+                <WrapPanel Margin="0,0,0,5">
+                    <TextBlock Text="Instructor" 
+                               Style="{StaticResource PrimaryTextBlock}" />
+                    <TextBox Text="{Binding Instructor, ValidatesOnDataErrors=True}" 
+                             Style="{StaticResource PrimaryTextBox}" />
+                </WrapPanel>
+                <WrapPanel Margin="0,0,0,5">
+                    <TextBlock Text="Description" 
+                               Style="{StaticResource PrimaryTextBlock}" />
+                    <TextBox Text="{Binding Description, ValidatesOnDataErrors=True}" 
+                             Style="{StaticResource PrimaryTextBox}" />
+                </WrapPanel>
+                <WrapPanel Margin="0,0,0,5">
+                    <TextBlock Text="Credits" 
+                               Style="{StaticResource PrimaryTextBlock}" />
+                    <TextBox Text="{Binding Credits, ValidatesOnDataErrors=True}" 
+                             Style="{StaticResource PrimaryTextBox}" />
+                </WrapPanel>
+                <WrapPanel Margin="0,0,0,5">
+                    <TextBlock Text="Department" 
+                               Style="{StaticResource PrimaryTextBlock}" />
+                    <TextBox Text="{Binding Department, ValidatesOnDataErrors=True}" 
+                             Style="{StaticResource PrimaryTextBox}" />
+                </WrapPanel>
+                <WrapPanel Margin="0,0,0,5">
+                    <TextBlock Text="Prerequisites" 
+                               Style="{StaticResource PrimaryTextBlock}" />
+                    <TextBox Text="{Binding Prerequisites, ValidatesOnDataErrors=True}" 
+                             Style="{StaticResource PrimaryTextBox}" />
                 </WrapPanel>
             </StackPanel>
         </GroupBox>
-        <GroupBox Header="Assigned Students" Grid.Row="1" Grid.Column="1" Margin="0,5,5,5" Padding="10">
-            <ListView x:Name="Assigned" ItemsSource="{Binding AssignedStudents}" BorderThickness="0">
+
+        <!-- Assigned Students Group -->
+        <GroupBox Header="Assigned Students" 
+                  Grid.Row="1" 
+                  Grid.Column="1" 
+                  Margin="0,5,5,5" 
+                  Padding="10">
+            <ListView x:Name="Assigned" 
+                      ItemsSource="{Binding AssignedStudents}" 
+                      BorderThickness="0">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Grid Margin="0,0,0,5">
@@ -63,12 +133,38 @@
                 </ListView.ItemTemplate>
             </ListView>
         </GroupBox>
-        <StackPanel Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Margin="5">
-            <Button Margin="0,0,0,2" Command="{Binding Add}" CommandParameter="{Binding ElementName=Available, Path=SelectedItem}" Style="{StaticResource SecondaryButton}" Width="22" Height="22" Tag="&#xE760;" />
-            <Button Margin="0,2,0,0" Command="{Binding Remove}" CommandParameter="{Binding ElementName=Assigned, Path=SelectedItem}" Style="{StaticResource SecondaryButton}" Width="22" Height="22" Tag="&#xE760;" />
+
+        <!-- Add/Remove Buttons -->
+        <StackPanel Grid.Row="1" 
+                    Grid.Column="2" 
+                    VerticalAlignment="Center" 
+                    Margin="5">
+            <Button Margin="0,0,0,2" 
+                    Command="{Binding Add}" 
+                    CommandParameter="{Binding ElementName=Available, Path=SelectedItem}" 
+                    Style="{StaticResource SecondaryButton}" 
+                    Width="22" 
+                    Height="22" 
+                    Tag="&#xE760;" />
+
+            <Button Margin="0,2,0,0" 
+                    Command="{Binding Remove}" 
+                    CommandParameter="{Binding ElementName=Assigned, Path=SelectedItem}" 
+                    Style="{StaticResource SecondaryButton}" 
+                    Width="22" 
+                    Height="22" 
+                    Tag="&#xE761;" />
         </StackPanel>
-        <GroupBox Header="Available Students" Grid.Row="1" Grid.Column="3" Margin="0,5,5,5" Padding="10">
-            <ListView x:Name="Available" ItemsSource="{Binding AvailableStudents}" BorderThickness="0">
+
+        <!-- Available Students Group -->
+        <GroupBox Header="Available Students" 
+                  Grid.Row="1" 
+                  Grid.Column="3" 
+                  Margin="0,5,5,5" 
+                  Padding="10">
+            <ListView x:Name="Available" 
+                      ItemsSource="{Binding AvailableStudents}" 
+                      BorderThickness="0">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Grid Margin="0,0,0,5">
@@ -89,6 +185,12 @@
                 </ListView.ItemTemplate>
             </ListView>
         </GroupBox>
-        <TextBlock Text="{Binding Response}" Grid.Row="2" Grid.ColumnSpan="4" HorizontalAlignment="Center" Margin="0,0,0,5"/>
+
+        <!-- Response Message -->
+        <TextBlock Text="{Binding Response}" 
+                   Grid.Row="2" 
+                   Grid.ColumnSpan="4" 
+                   HorizontalAlignment="Center" 
+                   Margin="0,0,0,5"/>
     </Grid>
 </UserControl>

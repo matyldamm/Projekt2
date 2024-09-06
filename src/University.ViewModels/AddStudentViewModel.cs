@@ -256,7 +256,7 @@ public class AddStudentViewModel : ViewModelBase, IDataErrorInfo
 
     private bool IsValid()
     {
-        string[] properties = { nameof(Name), nameof(LastName), nameof(PESEL), nameof(BirthDate), nameof(Gender), nameof(PlaceOfBirth), nameof(PlaceOfResidence), nameof(AddressLine1), nameof(PostalCode) };
+        string[] properties = { nameof(Name), nameof(LastName), nameof(PESEL), nameof(BirthDate)};
         return properties.All(property => string.IsNullOrEmpty(this[property]));
     }
 }

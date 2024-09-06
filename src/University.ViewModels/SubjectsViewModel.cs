@@ -89,7 +89,7 @@ public class CoursesViewModel : ViewModelBase
             {
                 EditCourseViewModel editCourseViewModel = new EditCourseViewModel(_context, _dialogService)
                 {
-                    Course_Code = courseCode // Set Course_Code instead of CourseId
+                    Course_Code = courseCode 
                 };
                 var instance = MainWindowViewModel.Instance();
                 if (instance is not null)
@@ -126,7 +126,7 @@ public class CoursesViewModel : ViewModelBase
             if (course is not null)
             {
                 // Show dialog with course name
-                DialogResult = _dialogService.Show(course.Name);
+                DialogResult = _dialogService.Show(course.Title);
                 if (DialogResult == false)
                 {
                     return;

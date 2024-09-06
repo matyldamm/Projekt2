@@ -22,62 +22,80 @@
         <ListView Grid.Row="1" ItemsSource="{Binding Courses}" BorderThickness="0" ItemContainerStyle="{StaticResource ListViewPrimaryItem}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}">
+                    <GridViewColumn Header="Course Code" DisplayMemberBinding="{Binding Course_Code}">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Name}" />
+                                <TextBlock Text="{Binding Course_Code}" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Semester" DisplayMemberBinding="{Binding Semester}">
+                    <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Semester}" />
+                                <TextBlock Text="{Binding Title}" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Lecturer" DisplayMemberBinding="{Binding Lecturer}">
+                    <GridViewColumn Header="Instructor" DisplayMemberBinding="{Binding Instructor}">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Lecturer}" />
+                                <TextBlock Text="{Binding Instructor}" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Students" Width="200">
+                    <GridViewColumn Header="Schedule" DisplayMemberBinding="{Binding Schedule}">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Expander Header="View" Padding="2">
-                                    <ItemsControl ItemsSource="{Binding Students}">
-                                        <ItemsControl.ItemTemplate>
-                                            <DataTemplate>
-                                                <Grid Margin="0,0,0,5">
-                                                    <TextBlock>
-                                                        <TextBlock.Text>
-                                                            <MultiBinding StringFormat=" {0} {1} ">
-                                                                <Binding Path="Name"/>
-                                                                <Binding Path="LastName"/>
-                                                            </MultiBinding>
-                                                        </TextBlock.Text>
-                                                    </TextBlock>
-                                                </Grid>
-                                            </DataTemplate>
-                                        </ItemsControl.ItemTemplate>
-                                    </ItemsControl>
-                                </Expander>
+                                <TextBlock Text="{Binding Schedule}" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
+                    <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Description}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Credits" DisplayMemberBinding="{Binding Credits}">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Credits}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Department" DisplayMemberBinding="{Binding Department}">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Department}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Prerequisites" Width="200">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <ItemsControl ItemsSource="{Binding Prerequisites}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding}" />
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                   
                     <GridViewColumn Header="Edit">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Command="{Binding DataContext.Edit, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}" CommandParameter="{Binding CourseId}" Style="{StaticResource SecondaryButton}" Tag="&#xE70F;" />
+                                <Button Command="{Binding DataContext.Edit, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}" CommandParameter="{Binding Course_Code}" Style="{StaticResource SecondaryButton}" Tag="&#xE70F;" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Remove">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Command="{Binding DataContext.Remove, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}" CommandParameter="{Binding CourseId}" Style="{StaticResource SecondaryButton}" Tag="&#xE74D;" />
+                                <Button Command="{Binding DataContext.Remove, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}" CommandParameter="{Binding Course_Code}" Style="{StaticResource SecondaryButton}" Tag="&#xE74D;" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

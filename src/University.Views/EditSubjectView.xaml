@@ -28,16 +28,32 @@
         <GroupBox Header="Course Data" Grid.Row="1" Grid.Column="0" Margin="5" Padding="10">
             <StackPanel>
                 <WrapPanel Margin="0,0,0,5">
-                    <TextBlock Text="Name" Style="{StaticResource PrimaryTextBlock}" />
-                    <TextBox Text="{Binding Name, ValidatesOnDataErrors=True}" Style="{StaticResource PrimaryTextBox}" />
+                    <TextBlock Text="Course Code" Style="{StaticResource PrimaryTextBlock}" />
+                    <TextBox Text="{Binding Course_Code, ValidatesOnDataErrors=True}" IsReadOnly="True" Style="{StaticResource PrimaryTextBox}" />
                 </WrapPanel>
                 <WrapPanel Margin="0,0,0,5">
-                    <TextBlock Text="Semester" Style="{StaticResource PrimaryTextBlock}" />
-                    <TextBox Text="{Binding Semester, ValidatesOnDataErrors=True}" Style="{StaticResource PrimaryTextBox}" />
+                    <TextBlock Text="Title" Style="{StaticResource PrimaryTextBlock}" />
+                    <TextBox Text="{Binding Title, ValidatesOnDataErrors=True}" Style="{StaticResource PrimaryTextBox}" />
                 </WrapPanel>
                 <WrapPanel Margin="0,0,0,5">
-                    <TextBlock Text="Lecturer" Style="{StaticResource PrimaryTextBlock}" />
-                    <TextBox Text="{Binding Lecturer, ValidatesOnDataErrors=True}" Style="{StaticResource PrimaryTextBox}" />
+                    <TextBlock Text="Instructor" Style="{StaticResource PrimaryTextBlock}" />
+                    <TextBox Text="{Binding Instructor, ValidatesOnDataErrors=True}" Style="{StaticResource PrimaryTextBox}" />
+                </WrapPanel>
+                <WrapPanel Margin="0,0,0,5">
+                    <TextBlock Text="Schedule" Style="{StaticResource PrimaryTextBlock}" />
+                    <TextBox Text="{Binding Schedule, ValidatesOnDataErrors=True}" Style="{StaticResource PrimaryTextBox}" />
+                </WrapPanel>
+                <WrapPanel Margin="0,0,0,5">
+                    <TextBlock Text="Description" Style="{StaticResource PrimaryTextBlock}" />
+                    <TextBox Text="{Binding Description, ValidatesOnDataErrors=True}" Style="{StaticResource PrimaryTextBox}" />
+                </WrapPanel>
+                <WrapPanel Margin="0,0,0,5">
+                    <TextBlock Text="Credits" Style="{StaticResource PrimaryTextBlock}" />
+                    <TextBox Text="{Binding Credits, ValidatesOnDataErrors=True}" Style="{StaticResource PrimaryTextBox}" />
+                </WrapPanel>
+                <WrapPanel Margin="0,0,0,5">
+                    <TextBlock Text="Department" Style="{StaticResource PrimaryTextBlock}" />
+                    <TextBox Text="{Binding Department, ValidatesOnDataErrors=True}" Style="{StaticResource PrimaryTextBox}" />
                 </WrapPanel>
             </StackPanel>
         </GroupBox>

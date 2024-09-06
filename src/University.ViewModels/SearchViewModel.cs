@@ -183,7 +183,7 @@ public class SearchViewModel : ViewModelBase
         if (FirstCondition == "who attends")
         {
             _context.Database.EnsureCreated();
-            Course? course = _context.Courses.Where(s => s.Name == SecondCondition).FirstOrDefault();
+            Course? course = _context.Courses.Where(s => s.Title == SecondCondition).FirstOrDefault();
             if (course is not null)
             {
                 var students = _context.Students
@@ -191,7 +191,7 @@ public class SearchViewModel : ViewModelBase
                     .ToList();
 
                 var filteredStudents = students
-                    .Where(s => s.Courses != null && s.Courses.Any(sub => sub.Name == course.Name))
+                    .Where(s => s.Courses != null && s.Courses.Any(sub => sub.Title == course.Title))
                     .ToList();
 
                 Students = new ObservableCollection<Student>(filteredStudents);
@@ -319,7 +319,7 @@ public class SearchViewModel : ViewModelBase
                         return;
                     }
 
-                    DialogResult = _dialogService.Show(course.Name);
+                    DialogResult = _dialogService.Show(course.Title);
                     if (DialogResult == false)
                     {
                         return;

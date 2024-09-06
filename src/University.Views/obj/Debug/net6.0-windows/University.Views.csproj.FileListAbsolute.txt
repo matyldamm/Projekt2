@@ -90,3 +90,15 @@ C:\Users\matyl\Documents\Projekt2\Projekt2\src\University.Views\obj\Debug\net6.0
 C:\Users\matyl\Documents\Projekt2\Projekt2\src\University.Views\obj\Debug\net6.0-windows\AddSubjectView.g.cs
 C:\Users\matyl\Documents\Projekt2\Projekt2\src\University.Views\obj\Debug\net6.0-windows\EditSubjectView.g.cs
 C:\Users\matyl\Documents\Projekt2\Projekt2\src\University.Views\obj\Debug\net6.0-windows\SubjectsView.g.cs
+C:\Users\matyl\Documents\Projekt2\Projekt2\src\University.Views\obj\Debug\net6.0-windows\AddFacultyMemberView.baml
+C:\Users\matyl\Documents\Projekt2\Projekt2\src\University.Views\obj\Debug\net6.0-windows\EditFacultyMemberView.baml
+C:\Users\matyl\Documents\Projekt2\Projekt2\src\University.Views\obj\Debug\net6.0-windows\AddFacultyMemberView.g.cs
+C:\Users\matyl\Documents\Projekt2\Projekt2\src\University.Views\obj\Debug\net6.0-windows\EditFacultyMemberView.g.cs
+C:\Users\matyl\Documents\Projekt2\Projekt2\src\University.Views\obj\Debug\net6.0-windows\FacultyMemberView.baml
+C:\Users\matyl\Documents\Projekt2\Projekt2\src\University.Views\obj\Debug\net6.0-windows\FacultyMemberView.g.cs
+C:\Users\matyl\Documents\Projekt2\Projekt2\src\University.Views\obj\Debug\net6.0-windows\AddResearchProjectView.baml
+C:\Users\matyl\Documents\Projekt2\Projekt2\src\University.Views\obj\Debug\net6.0-windows\EditResearchProjectView.baml
+C:\Users\matyl\Documents\Projekt2\Projekt2\src\University.Views\obj\Debug\net6.0-windows\ResearchProjectView.baml
+C:\Users\matyl\Documents\Projekt2\Projekt2\src\University.Views\obj\Debug\net6.0-windows\AddResearchProjectView.g.cs
+C:\Users\matyl\Documents\Projekt2\Projekt2\src\University.Views\obj\Debug\net6.0-windows\EditResearchProjectView.g.cs
+C:\Users\matyl\Documents\Projekt2\Projekt2\src\University.Views\obj\Debug\net6.0-windows\ResearchProjectView.g.cs
